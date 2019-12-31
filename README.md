@@ -12,8 +12,8 @@ https://github.com/smoghaddam/Engineering-Full-Stack-Apps-in-the-Cloud
 `npm run dev`
 
 ## Elastic Beanstalk Endpoints
-1. Development: http://engineeringfullstackappsincloud-dev.us-east-2.elasticbeanstalk.com/
-2. Operation: http://engineeringfullstackappsincloud-prod.us-east-2.elasticbeanstalk.com/
+1. Development: http://engineeringfullstackappinthecloud-dev.us-east-2.elasticbeanstalk.com/
+2. Production: http://engineeringfullstackappinthecloud-prod.us-east-2.elasticbeanstalk.com/
 
 ## Please Note!
 Use the **"UDACITY"** as the API KEY to test this project.

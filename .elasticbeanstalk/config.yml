@@ -1,26 +1,26 @@
 branch-defaults:
   dev:
-    environment: EngineeringFullStackAppsInCloud-dev
+    environment: EngineeringFullStackAppInTheCloud-dev
     group_suffix: null
   master:
-    environment: EngineeringFullStackAppsInCloud-prod
+    environment: EngineeringFullStackAppInTheCloud-prod
 deploy:
   artifact: ./www/Archive.zip
 environment-defaults:
-  udagram-filter-dev:
+  EngineeringFullStackAppInTheCloud-dev:
     branch: null
     repository: null
 global:
-  application_name: EngineeringFullStackAppsInCloud
+  application_name: EngineeringFullStackAppInTheCloud
   branch: null
-  default_ec2_keyname: fullstackappdev
+  default_ec2_keyname: EngineeringFullStackAppInTheCloud
   default_platform: Node.js
   default_region: us-east-2
   include_git_submodules: true
   instance_profile: null
   platform_name: null
   platform_version: null
-  profile: null
+  profile: eb-cli
   repository: null
   sc: git
   workspace_type: Application

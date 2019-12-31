@@ -17,36 +17,36 @@ import {filterImageFromURL, deleteLocalFiles} from './util/util';
   // Use the body parser middleware for post requests
   app.use(bodyParser.json());
 
-  app.get("/filteredimage", async (req,res) => {
-    let { image_url } = req.query;
+  app.get("/filteredimage", async (reqest,response) => {
+    let { image_url } = reqest.query;
     let http = /http/gi;
     let https = /https/gi;
-    let theAPIKey = req.header("X-API-Key");
+    let theAPIKey = reqest.header("X-API-Key");
 
     if (!theAPIKey){
-      return res.status(422).send({message: 'The API Key parameter is required.'});
+      return response.status(422).send({message: 'The API Key parameter is required.'});
     }
 
     if (theAPIKey != cfg.api.key){
-      return res.status(401).send({message: 'The API Key is incorrect.'});
+      return response.status(401).send({message: 'The API Key is incorrect.'});
     }
   
     if (!image_url){
-      return res.status(422).send({message: 'The image_url parameter is required.'});
+      return response.status(422).send({message: 'The image_url parameter is required.'});
     }
 
     if (image_url.search(http) == -1 && image_url.search(https) == -1) { 
-      return res.status(422).send({message: 'The image_url is incorrect.'});
+      return response.status(422).send({message: 'The image_url is incorrect.'});
     }
 
     let filteredpath = await filterImageFromURL(image_url);
-    res.status(200).sendFile(filteredpath), () => {deleteLocalFiles([filteredpath]);}
+    response.status(200).sendFile(filteredpath), () => {deleteLocalFiles([filteredpath]);}
   });
   
   // Root Endpoint
   // Displays a simple message to the user
-  app.get( "/", async ( req, res ) => {
-    res.send("try GET /filteredimage?image_url={{}}   |   The value of API KEY is \"Udacity\"    |    by Sepid M.")
+  app.get( "/", async ( request, response ) => {
+    response.send("try GET /filteredimage?image_url={{}}   |   The value of API KEY is \"Udacity\"    |    by Sepid M.")
   } );
   
 
